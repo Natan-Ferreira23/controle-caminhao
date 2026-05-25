@@ -34,7 +34,23 @@ async function criar(req, res) {
     }
 }
 
+async function deletar(req,res){
+    
+
+    try{      
+        const dados = req.body;
+        const usuario = await userService.deletar(dados);
+       
+        res.status(201).json(usuario);
+        
+    }catch(erro){
+        res.status(400).json({
+            erro:erro.message
+        })
+    }
+}
 module.exports = {
     listar,
-    criar
+    criar,
+    deletar
 };
