@@ -33,7 +33,15 @@ async function criar(dados) {
     return await userRepository.criar(dados);
 }
 
+async function deletar(dados) {
+    if (!dados.id){
+        throw new Error("ID obrigatório !");
+    }
+    return await userRepository.deletarPorId(dados);
+}
+
 module.exports = {
     listar,
-    criar
+    criar,
+    deletar
 };

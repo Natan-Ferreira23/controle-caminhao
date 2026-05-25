@@ -3,7 +3,12 @@ const db = require('../database/db');
 async function listar() {
 
     const resultado = await db.query(`
-        SELECT *
+        SELECT 
+            id, 
+            nome,
+            email,
+            celular, 
+            tipo
         FROM Usuario
     `);
 
@@ -48,8 +53,20 @@ async function buscarPorEmail(email) {
     return resultado.rows[0];
 }
 
+async function deletarPorId(dados){
+    
+    const resultado = await db.query(`
+            DELETE FROM Usuario 
+            WHERE id=$1
+            RETURNING *
+        `,[dados.id]);
+    
+    return resultado.rows[0];
+}
+
 module.exports = {
     listar,
     criar,
-    buscarPorEmail
+    buscarPorEmail,
+    deletarPorId
 };
