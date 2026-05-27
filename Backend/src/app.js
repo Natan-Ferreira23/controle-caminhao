@@ -5,6 +5,11 @@ app.use(express.json());
 //adicionando rota de usuario 
 const userRoutes = require('./routes/userRoutes');
 app.use('/usuarios', userRoutes);
+
+//adicionando rota de empresa
+const employerRoutes = require('./routes/employerRoutes');
+app.use('/empresas', employerRoutes);
+
 // autenticacao
 const authRoutes = require('./routes/authRoutes');
 app.use('/auth', authRoutes);
