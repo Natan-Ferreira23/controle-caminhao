@@ -36,11 +36,11 @@ async function buscarPorId(dados) {
     const resultado = await db.query(`
         SELECT *
         FROM Empresa
-        WHERE id= $1
+        WHERE id= $1        
     `,
     [dados.id]);
 
-    return resultado.rows[0];
+    return resultado.rows;
 }
 
 async function deletarPorId(dados){

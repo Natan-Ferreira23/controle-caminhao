@@ -66,9 +66,22 @@ async function atualizar(req,res){
         })
     }
 }
+
+async function listarPorId(req,res){
+    try{
+        const dados = req.params;
+        const empresa = await employerService.listarPorId(dados);
+        res.status(201).json(empresa);
+    }catch(erro){
+        res.status(400).json({
+            erro:erro.message
+        })
+    }
+}
 module.exports = {
     listar,
     criar,
     deletar,
-    atualizar
+    atualizar,
+    listarPorId
 };
