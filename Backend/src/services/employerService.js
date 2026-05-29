@@ -33,9 +33,18 @@ async function atualizar(dados) {
     return await employerRepository.atualizarPorId(dados);
 }
 
+async function listarPorId(dados){
+    if (!dados.id){
+        throw new Error("ID obrigatório !");
+    }
+    return await employerRepository.buscarPorId(dados);
+}
+
 module.exports = {
     listar,
     criar,
     deletar,
-    atualizar
+    atualizar,
+    listarPorId
+
 };

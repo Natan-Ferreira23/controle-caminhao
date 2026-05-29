@@ -10,6 +10,11 @@ app.use('/usuarios', userRoutes);
 const employerRoutes = require('./routes/employerRoutes');
 app.use('/empresas', employerRoutes);
 
+
+//adicionando rota de caminhoes
+const truckRoutes = require('./routes/truckRoutes');
+app.use('/caminhoes', truckRoutes);
+
 // autenticacao
 const authRoutes = require('./routes/authRoutes');
 app.use('/auth', authRoutes);
