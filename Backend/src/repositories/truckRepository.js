@@ -4,13 +4,13 @@ async function buscarPorEmpresa(dados) {
 
     const resultado = await db.query(`
         SELECT 
-            id, 
-            modelo,
-            observacoes,
-            placa,
-            empresa.nome
+            Caminhao.id, 
+            Caminhao.modelo,
+            Caminhao.observacoes,
+            Caminhao.placa,
+            Empresa.nome
         FROM Caminhao
-        INNER JOIN Empresa ON empresa.id= $1
+        INNER JOIN Empresa ON Empresa.id= $1
     `,[
         dados.empresa
     ]);
