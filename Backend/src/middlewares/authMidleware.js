@@ -17,7 +17,7 @@ function autenticar(req, res, next) {
 
         const decoded = jwt.verify(
             token,
-            'segredo_super_secreto'
+            process.env.JWT_SECRET
         );
 
         req.usuario = decoded;
@@ -25,9 +25,10 @@ function autenticar(req, res, next) {
         next();
 
     } catch (erro) {
-
+                
         return res.status(401).json({
             erro: 'Token inválido'
+            
         });
     }
 }
