@@ -16,6 +16,10 @@ app.use('/empresas', employerRoutes);
 const truckRoutes = require('./routes/truckRoutes');
 app.use('/caminhoes', truckRoutes);
 
+//adicionando rota de abastecimentos
+const fuelRoutes = require('./routes/fuelRoutes');
+app.use('/abastecimentos', fuelRoutes);
+
 // autenticacao
 const authRoutes = require('./routes/authRoutes');
 app.use('/auth', authRoutes);
