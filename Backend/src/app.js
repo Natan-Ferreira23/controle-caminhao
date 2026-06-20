@@ -20,6 +20,10 @@ app.use('/caminhoes', truckRoutes);
 const fuelRoutes = require('./routes/fuelRoutes');
 app.use('/abastecimentos', fuelRoutes);
 
+//adicionando rota de gastos
+const expenseRoutes = require('./routes/expenseRoutes');
+app.use('/gastos', expenseRoutes);
+
 // autenticacao
 const authRoutes = require('./routes/authRoutes');
 app.use('/auth', authRoutes);
