@@ -24,6 +24,10 @@ app.use('/abastecimentos', fuelRoutes);
 const expenseRoutes = require('./routes/expenseRoutes');
 app.use('/gastos', expenseRoutes);
 
+//adicionando rota de viagens
+const tripRoutes = require('./routes/tripRoutes');
+app.use('/viagens', tripRoutes);
+
 // autenticacao
 const authRoutes = require('./routes/authRoutes');
 app.use('/auth', authRoutes);
