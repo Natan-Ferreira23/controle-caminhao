@@ -41,6 +41,9 @@ async function atualizar(dados) {
     if (!dados.id){
         throw new Error("ID obrigatório !");
     }
+
+    dados.valorTotal = parseFloat(dados.preco) * parseFloat(dados.quantidade);
+    
     return await fuelRepository.atualizarPorId(dados);
 }
 
